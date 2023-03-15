@@ -1,6 +1,7 @@
 class Stack:
-    arr = []
-    size = 5
+    def __init__(self):
+        self.arr = []
+        self.size = 5
 
     def stack_push(self, element):
         if len(self.arr) >= self.size:
@@ -25,14 +26,3 @@ class Stack:
             return True
         else:
             return False
-
-
-obj1 = Stack()
-obj2 = Stack()
-for i in range(obj1.size):
-    obj1.stack_push(i)
-print(obj1.arr)
-
-for j in obj1.arr:
-    obj2.stack_push(obj1.stack_pop())
-print(obj2.arr)

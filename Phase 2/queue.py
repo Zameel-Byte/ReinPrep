@@ -1,6 +1,7 @@
 class Queue:
-    data = []
-    size = 5
+    def __init__(self):
+        self.data = []
+        self.size = 5
 
     def enqueue(self, element):
         if len(self.data) >= self.size:
@@ -25,14 +26,3 @@ class Queue:
             return True
         else:
             return False
-
-
-obj1 = Queue()
-obj2 = Queue()
-for i in range(obj1.size):
-    obj1.enqueue(i)
-print(obj1.data)
-
-for j in obj1.data:
-    obj2.enqueue(obj1.dequeue())
-print(obj2.data)
