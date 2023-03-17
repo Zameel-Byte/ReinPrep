@@ -1,7 +1,7 @@
 class Stack:
     def __init__(self):
         self.arr = []
-        self.size = 5
+        self.size = 10
 
     def stack_push(self, element):
         if len(self.arr) >= self.size:
@@ -26,3 +26,6 @@ class Stack:
             return True
         else:
             return False
+
+    def stack_print(self):
+        print(self.arr)

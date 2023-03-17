@@ -26,3 +26,6 @@ class Queue:
             return True
         else:
             return False
+
+    def queue_print(self):
+        print(self.data)

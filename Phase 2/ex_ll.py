@@ -1,0 +1,15 @@
+from linked_list import LinkedList, Node
+
+obj = LinkedList()
+head = Node(10)
+obj.add_element(head, 20)
+obj.add_element(head, 30)
+head = obj.add_at_start(head, 7)
+obj.list_print(head)
+obj.insert_at_pos(head, 40, 4)
+obj.list_print(head)
+head = obj.list_rev(head)
+obj.list_print(head)
+head = obj.half_rev(head, 4)
+obj.list_print(head)
+print(obj.search_element(head, 7))
