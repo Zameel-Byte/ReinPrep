@@ -1,12 +1,9 @@
-from queue import Queue
-
-Q = Queue()
-
 class Node:
     def __init__(self, value):
         self.data = value
         self.left = None
         self.right = None
+
 
 class BST:
     def add_element(self, root, value):
@@ -43,7 +40,7 @@ class BST:
             self.postorder(root.right)
         print(root.data, end=" ")
 
-    def levelorder(self, root):
+    def leveler(root):
         q = []
         q.append(root)
         while len(q) != 0:
@@ -54,17 +51,27 @@ class BST:
                 q.append(ele.right)
             print(ele.data)
 
+    def search_ele(self, root, value):
+        if root.data == value or root is None:
+            return root
+        if value < root.data and root.left is not None:
+            return self.search_ele(root.left, value)
+        if value > root.data and root.right is not None:
+            return self.search_ele(root.right, value)
 
-obj = BST()
-root = Node(10)
-obj.add_element(root, 7)
-obj.add_element(root, 40)
-obj.add_element(root, 5)
-obj.add_element(root, 9)
-obj.add_element(root, 15)
-obj.add_element(root, 60)
-# obj.inorder(root)
-# obj.preorder(root)
-# obj.postorder(root)
-obj.levelorder(root)
+    def sum_subtree(self, root):
+        sum = root.data
+        if root.left is not None:
+            sum += self.sum_subtree(root.left)
+        if root.right is not None:
+            sum += self.sum_subtree(root.right)
+        return sum
+
+    def height(self, root):
+        if root is None:
+            return -1
+        left_height = self.height(root.left)
+        right_height = self.height(root.right)
+
+        return 1 + max(left_height, right_height)
 
